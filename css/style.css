@@ -731,11 +731,11 @@ figure:hover .kenburns,
 }
 .city-map-wrap img {
   width: 100%;
-  max-height: 42vh;
+  max-height: 52vh;
   object-fit: contain;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: #0A0612;
+  background: #087ca0;
 }
 .city-map-wrap figcaption {
   font-size: 0.82rem;

@@ -57,7 +57,7 @@ window.I18N = {
     v_r3_p: "Guindastes monumentais, pátios de contêineres sob luz de sódio e docas industriais que nunca dormem.",
     v_r4_t: "Downtown",
     v_r4_p: "Cânions de vidro e concreto, rastros de faróis no trânsito noturno e vapor subindo das galerias subterrâneas.",
-    v_map_cap: "Mapa vetorial estilizado e conceitual (arte original de fã — confirme a geografia oficial nos canais da Rockstar Games).",
+    v_map_cap: "Mapa conceitual do Estado de Leonida (referência comunitária — confirme a geografia oficial nos canais da Rockstar Games).",
 
     c_h: "Personagens",
     c_sub: "Lucia e Jason — artes promocionais oficiais (© Rockstar Games / Take-Two Interactive, uso não comercial de fã).",
@@ -145,7 +145,7 @@ window.I18N = {
     alt_conv: "Carro conversível clássico original estacionado sob palmeiras e reflexos de neon",
     alt_boat: "Lancha rápida cortando as águas da baía sob o pôr do sol tropical",
     alt_radio: "Cabine de rádio retrô iluminada por neon com microfone condensador",
-    alt_map: "Mapa vetorial estilizado original mostrando as ilhas e regiões conceituais"
+    alt_map: "Mapa ilustrativo do Estado de Leonida com Vice City, Port Gellhorn, Grassrivers e Leonida Keys"
   },
   en: {
     skip: "Skip to main content",
@@ -201,7 +201,7 @@ window.I18N = {
     v_r3_p: "Towering cargo cranes, container yards bathed in sodium vapor light, and industrial docks that never sleep.",
     v_r4_t: "Downtown",
     v_r4_p: "Glass and concrete canyons, long-exposure headlight trails, and steam rising from underground grates.",
-    v_map_cap: "Stylized conceptual vector map (original fan art — verify official geography on Rockstar Games channels).",
+    v_map_cap: "Conceptual map of the State of Leonida (community reference — verify official geography on Rockstar Games channels).",
 
     c_h: "Characters",
     c_sub: "Lucia & Jason — official promotional artwork (© Rockstar Games / Take-Two Interactive, non-commercial fan use).",
@@ -289,6 +289,6 @@ window.I18N = {
     alt_conv: "Original classic convertible parked under palm trees and neon reflections",
     alt_boat: "High-speed powerboat slicing through bay waters at tropical sunset",
     alt_radio: "Neon-lit retro radio broadcast booth with condenser microphone",
-    alt_map: "Original stylized vector map showing conceptual islands and districts"
+    alt_map: "Illustrative map of the State of Leonida showing Vice City, Port Gellhorn, Grassrivers, and Leonida Keys"
   }
 };
