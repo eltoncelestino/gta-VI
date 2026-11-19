@@ -1,0 +1,11 @@
+# Archives & OS files
+gta6-landing.zip
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies & caches
+node_modules/
+__pycache__/
+*.pyc
+.env

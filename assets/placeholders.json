@@ -1,0 +1,20 @@
+{
+  "hero-sky.avif": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoYAA4APtFWpUwoJKOiMAgBABoJbACdMoR3N6SAKG1H/MyBmAD+Ri7aVikzRuuKTsWeM1r2bw4la0pzTmWIFAfiDbcrADZMm6csNnX3dfgujAcyy06L0BzbSHst2XHhv3pcwAAA",
+  "char-lucia.webp": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoYACAAPtFWpk0oJKOiMBgIAQAaCUATploYGg/XQfi2JE/TCdkpiSgdqPLrAADxxXUkqlxnySQebgsHlGda4WjLa1aeC8n6gibYQuh9J6lD3RuH/pnfZ/ieA7JXGDe53HeG6A46+vJVZf8YjfCEG1jY2vkjRlW+BVgAXQimp5wvaya26CGNOQuzwQ8gAA==",
+  "char-jason.webp": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwBQCdASoYACAAPtFQo0uoJCMht/VYAQAaCWYAnTKEhEhAAdOTRz4f+5mOAvpr6myTDxuOGwAA/UILxWm/+HdFhXkGMBf3WRHVCVtQ01mrqMjnrWo7lq6W4wqf35KEZCAcYffDKLCroQSRDth6bNIDJlCZxGQJVYDR0+GJUCxkpqTq6Q7eMZfnWnJllkEAAAA=",
+  "city-ocean-strip.avif": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQBACdASoYAA4ALplotFoiqCgoCACYSxAE6ZQZDqSaA8OvTUnUutaSAAD+80+Tt8UKzgGlqQrZ54BS6+Drc0pqmKbqb+pimk0CBiaFHTMtZYlXTWSfAAAA",
+  "city-everglades.avif": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQBACdASoYAA4APtFapkyoJSOiMAgBABoJZgCdL1AB0cvAhk91iiW9No3wAP7s122rg9so28uDdIBkK2SexOavMssQPLV0x6WmlFBbMF/d8e8laqj3crGuQ5r1p9urC/Ws4AAA",
+  "city-port.avif": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQBACdASoYAA4APtFcpkyoJSOiMAgBABoJaACdMoACYY2xj8QHpSCzAAD+6Old69LliJOYfla2MN/HKUxc/fb2OI77cgJFbSJ326vFZRRFPoOiw+/CPcAA",
+  "city-downtown.avif": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAwCdASoYAA4ALplotFoiqCgoCACYSxgE6AGHC0UB5KGyAAD++Rhjg7O1uM9+dw/fIa+dWgGAErtgMOVUh+YCS+FY2LzLrjCLgI9tfSRT4cjeAAA=",
+  "vehicle-convertible.webp": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABwAwCdASoYAA4ALplotFoiqCgoCACYSxgE6AHTPKEeCdcOpgAA/vR8D3TTxiScokDT5/zYgA4NipEqSKFHq9PKrsiFnUBY3i4ll2CNG6hcAAAA",
+  "vehicle-speedboat.webp": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQBACdASoYAA4APtFWpEuoJKOhsAgBABoJbACdMoMljCcR8hq2PdgGX424AP4/BQvZvKFrl/0Ia1VrG7Z0x3wU+Sz31j4suSvhwRV8tOA943IV+0fqJnwTLsC+cqs4hYkTouIAAAA=",
+  "radio-booth.webp": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoYABgAPr1Qn0unJSKht/qoAOAXiUATpl0QaFWJLcpFAHr846pwQAAA/vaDlhPlMZr3qlLODw9Z9I0V2mVwFSMJwWqkvcL0o6GmQCw0qfHA4BlkfbTM7jQgAAA=",
+  "gallery-01.avif": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoYAA8APtFWpEuoJKOhsAgBABoJZgCdH8ACNp8HY9oQ8gTnfwgA/uXOEhWo6nBjLb/ohR9UcEjoE3hnwce9tnPpJmS9/0wVyEd/TnieFqsmqEyWl52nRAAA",
+  "gallery-02.avif": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoYAA8APtFWpEuoJKOhsAgBABoJQBOgAr3QupdSlF7KxyYAAPX+56q+gI9f4Wx4I3jjKrjs4wYpnxqg1Joeb7xLL57GHe5hDS/GfZaVyYZ/JHRLKVze+YZwAAA=",
+  "gallery-03.avif": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACQAwCdASoYAA8ALplotFoiqCgoCACYSxAE6ZQAL0iBXxUCqojYAP7vif7rabB/Nx7UZzhXBExReooIpBlfPjXQPNtHaTnfDonHYgL4pCZBUlL4r68/gTNeiiKmfHvZ8bPRZMzAAAA=",
+  "gallery-04.avif": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAwCdASoYAA8APtFWpEuoJKOhsAgBABoJZwBUfoec5iF2JUAA/uk0IVx5E6CGHFUAUiDG0ewPOviqAmKlwdyibfIvY0KNbY3ThZDAAAA=",
+  "gallery-05.avif": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoYAA8APtE4sFMoIiWjmAEAGglkAJ0ygANOsw8VJwxLWXiwMQAA/TxOkg9l7dEybwUJmSxH6JEiRLcYQCjNJKgkP4L6iWcHwPYJbqDGj0QxHUmHf5JLv8WK8ujUmnFMMAA=",
+  "gallery-06.avif": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoYAA8APtFcpkyoJSOiMAgBABoJYwCdABcnE5alO3RcIAD9w0EEFtPPTY7PBgoG5s5GVrMQ4InTdbn0EosV21g7l+ov+sGTx10vfDfMqRvUkd4+NGucp1FAAAA=",
+  "gallery-07.avif": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAwCdASoYAA8APtFWpEuoJKOhsAgBABoJQBOgBaA+SINAAP7wdHOkIA7l8YfCpSJEPdHP5W/sCey+fbqhs3C34Z4nexHpJJaZ0sb0AAA=",
+  "gallery-08.avif": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABQAwCdASoYAA8APtFUpEuoJKOhsAgBABoJYgCdAC0HcgW4gAD+7uG/5Wjz+uQwZWcwB1d9Sd+k0yrSbr/JtVVuLMJ7K3vsaKDsb+ihtj6AAA=="
+}

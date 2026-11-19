@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="view-transition" content="same-origin">
+  <title>Grand Theft Auto VI — Disponível Agora | Projeto Conceitual de Fã</title>
+  <meta name="description" content="Grand Theft Auto VI já está disponível para PlayStation 5 e Xbox Series X|S. Explore Vice City, Lucia, Jason, Modo Foto, Rádio e Guia do Jogador neste projeto de fã sem afiliação com a Rockstar Games.">
+  <meta property="og:title" content="Grand Theft Auto VI — Disponível Agora (Projeto de Fã)">
+  <meta property="og:description" content="Explore Vice City pós-lançamento: guia sem spoilers, ciclo dia/noite, personagens, rádio synth e modo foto. Projeto conceitual de fã.">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Grand Theft Auto VI — Disponível Agora (Projeto de Fã)">
+  <meta name="twitter:description" content="A espera acabou. Explore Vice City neste projeto interativo de fã.">
+  <meta name="twitter:image" content="/assets/og-image.png">
+  <meta name="theme-color" content="#0A0612">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preload" as="image" href="assets/hero-sky.avif" imagesrcset="assets/hero-sky-480.avif 480w, assets/hero-sky-960.avif 960w, assets/hero-sky-1600.avif 1600w, assets/hero-sky-2560.avif 2560w" imagesizes="100vw">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- VERIFICAR NA FONTE OFICIAL: datePublished, offers e URLs oficiais das lojas -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Grand Theft Auto VI",
+    "datePublished": "2026-11-19",
+    "gamePlatform": ["PlayStation 5", "Xbox Series X|S"],
+    "genre": ["Action-Adventure", "Open World"],
+    "inLanguage": ["pt-BR", "en"],
+    "image": "https://SEU-DOMINIO.com/assets/og-image.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Rockstar Games"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "PlayStation 5 Edition (Placeholder)",
+        "availability": "https://schema.org/InStock",
+        "price": "349.90",
+        "priceCurrency": "BRL",
+        "url": "https://store.playstation.com/?placeholder=gta-vi-ps5"
+      },
+      {
+        "@type": "Offer",
+        "name": "Xbox Series X|S Edition (Placeholder)",
+        "availability": "https://schema.org/InStock",
+        "price": "349.90",
+        "priceCurrency": "BRL",
+        "url": "https://www.xbox.com/games/store/?placeholder=gta-vi-xbox"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Loader neon intro -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-logo">VI</div>
+    <p class="loader-sub">VICE CITY · LEONIDA</p>
+    <i><u></u></i>
+  </div>
+
+  <!-- Fundo WebGL único (shader ondas de calor + vaga-lumes, pausa fora da viewport) -->
+  <canvas id="bg-webgl" aria-hidden="true"></canvas>
+
+  <!-- Cursor customizado com rastro neon -->
+  <div class="cursor-trail" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <a class="skip" href="#main" data-i18n="skip">Ir ao conteúdo principal</a>
+
+  <header class="top">
+    <a href="#hero" class="logo" aria-label="GTA VI Início">VI</a>
+    <nav aria-label="Principal">
+      <a href="#guide" data-i18n="n_guide">Guia</a>
+      <a href="#city" data-i18n="n_city">Vice City</a>
+      <a href="#chars" data-i18n="n_chars">Personagens</a>
+      <a href="#photomode" data-i18n="n_photo">Modo Foto</a>
+      <a href="#radio" data-i18n="n_radio">Rádio</a>
+      <a href="#updates" data-i18n="n_news">Novidades</a>
+      <a href="#faq" data-i18n="n_faq">FAQ</a>
+    </nav>
+    <div class="top-actions">
+      <button class="chip" id="sfx-toggle" type="button" aria-pressed="false" data-i18n="ui_sfx_off">SFX: OFF</button>
+      <button class="chip lang" id="lang" type="button" aria-label="Mudar idioma">EN</button>
+      <a href="#platforms" class="btn mag btn-sm" data-i18n="cta">Jogar agora</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO CINEMATOGRÁFICO EM CAMADAS (PÓS-LANÇAMENTO) -->
+    <section id="hero" class="hero">
+      <div class="hero-stage" id="hero-stage">
+        <img
+          class="layer layer-sky"
+          data-speed="-0.15"
+          data-depth="0.02"
+          src="assets/hero-sky.avif"
+          srcset="assets/hero-sky-480.avif 480w, assets/hero-sky-960.avif 960w, assets/hero-sky-1600.avif 1600w, assets/hero-sky-2560.avif 2560w"
+          sizes="100vw"
+          width="2560"
+          height="1097"
+          fetchpriority="high"
+          decoding="async"
+          data-i18n-alt="alt_sky"
+          alt="Céu tropical de pôr do sol em tons de magenta e laranja sobre o horizonte">
+        <img
+          class="layer layer-skyline"
+          data-speed="0.08"
+          data-depth="0.045"
+          src="assets/hero-skyline.png"
+          width="2560"
+          height="700"
+          decoding="async"
+          data-i18n-alt="alt_skyline"
+          alt="Silhueta de edifícios art déco com janelas iluminadas em neon azul-petróleo e rosa">
+        <img
+          class="layer layer-palms"
+          data-speed="0.24"
+          data-depth="0.08"
+          src="assets/hero-palms.png"
+          width="2560"
+          height="1000"
+          decoding="async"
+          data-i18n-alt="alt_palms"
+          alt="Silhueta de palmeiras tropicais em contraluz no primeiro plano">
+      </div>
+
+      <div class="hero-in">
+        <!-- Selo animado DISPONÍVEL AGORA + contador de dias pós-lançamento -->
+        <div class="launch-pill" role="status" aria-live="polite">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <strong data-i18n="badge_live">DISPONÍVEL AGORA</strong>
+          <span class="sep" aria-hidden="true">·</span>
+          <span id="days-since" class="days-since"></span>
+        </div>
+
+        <p class="sub" data-i18n="sub">A espera acabou · Bem-vindo a Leonida</p>
+        <h1 id="title" class="vhs-glitch" aria-label="Grand Theft Auto VI">
+          <span>GRAND THEFT</span>
+          <span>AUTO VI</span>
+        </h1>
+        <!-- VERIFICAR NA FONTE OFICIAL: plataformas disponíveis -->
+        <p class="date" data-i18n="date">Já disponível para PlayStation 5 e Xbox Series X|S</p>
+
+        <div class="row store-row">
+          <a id="cta-ps5" class="btn mag" href="https://store.playstation.com/?placeholder=gta-vi-ps5" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="cta">Jogar agora</span> · <small data-i18n="store_ps">PlayStation Store</small>
+          </a>
+          <a id="cta-xbox" class="btn mag btn-orange" href="https://www.xbox.com/games/store/?placeholder=gta-vi-xbox" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="cta">Jogar agora</span> · <small data-i18n="store_xb">Microsoft Store</small>
+          </a>
+        </div>
+
+        <div class="row sec-row">
+          <button class="btn ghost mag" type="button" data-open="trailer-modal" data-i18n="watch">Assistir ao trailer</button>
+          <a class="btn ghost mag" id="yt-direct-link" href="https://www.youtube.com/watch?v=VQRLujxTm3c" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          <a class="btn ghost mag" href="#community" data-i18n="join">Receber novidades e atualizações</a>
+        </div>
+
+        <p class="ai-note-pill" data-i18n="ai_badge">Imagens conceituais geradas por IA / Ilustração procedural · Projeto de fã</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div>
+        <span>DISPONÍVEL AGORA ✦ VICE CITY ✦ LUCIA ✦ JASON ✦ MODO FOTO ✦ RÁDIO SYNTH ✦ LEONIDA ✦&nbsp;</span>
+        <span>DISPONÍVEL AGORA ✦ VICE CITY ✦ LUCIA ✦ JASON ✦ MODO FOTO ✦ RÁDIO SYNTH ✦ LEONIDA ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- TRAILER & HISTÓRIA PÓS-LANÇAMENTO -->
+    <section id="trailer" class="sec">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="t_h">Trailer de Lançamento</h2>
+        <p data-i18n="t_sub">Experimente a atmosfera tropical e o ritmo implacável das ruas sob o pôr do sol.</p>
+      </div>
+      <button class="thumb" type="button" data-open="trailer-modal" aria-label="Reproduzir trailer de lançamento">
+        <img
+          class="kenburns blur-up"
+          data-placeholder="city-ocean-strip.avif"
+          src="assets/city-ocean-strip.avif"
+          srcset="assets/city-ocean-strip-480.avif 480w, assets/city-ocean-strip-960.avif 960w, assets/city-ocean-strip-1600.avif 1600w"
+          sizes="(max-width: 1200px) 92vw, 1100px"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+          data-i18n-alt="alt_ocean"
+          alt="Avenida costeira à noite com reflexos de neon no asfalto e carros conversíveis">
+        <span class="play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="38" height="38" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </button>
+    </section>
+
+    <section id="story" class="sec narrow">
+      <h2 class="rv vhs-glitch" data-i18n="s_h">A Vida Pós-Chegada</h2>
+      <!-- VERIFICAR NA FONTE OFICIAL: sinopse oficial pós-lançamento -->
+      <p id="words" class="words" data-i18n="s_p">As portas de Vice City já estão abertas. Entre avenidas banhadas em neon, pântanos enevoados e docas iluminadas por vapor de sódio, Lucia e Jason enfrentam o preço de cada escolha em uma jornada onde confiança é o recurso mais raro.</p>
+    </section>
+
+    <!-- 2. GUIA DO JOGADOR (SEM SPOILERS) -->
+    <section id="guide" class="sec">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="g_h">Guia do Jogador</h2>
+        <!-- VERIFICAR NA FONTE OFICIAL: mecânicas confirmadas -->
+        <p data-i18n="g_sub">Dicas gerais de sobrevivência e exploração para os primeiros passos — 100% livre de spoilers. (VERIFICAR NA FONTE OFICIAL)</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-card">
+          <div class="guide-media">
+            <img
+              class="kenburns blur-up"
+              data-placeholder="vehicle-convertible.webp"
+              src="assets/vehicle-convertible.webp"
+              srcset="assets/vehicle-convertible-480.webp 480w, assets/vehicle-convertible-960.webp 960w, assets/vehicle-convertible-1600.webp 1600w"
+              sizes="(max-width: 768px) 92vw, 520px"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              data-i18n-alt="alt_conv"
+              alt="Carro conversível clássico original estacionado sob palmeiras e reflexos de neon">
+          </div>
+          <div class="guide-body">
+            <span class="guide-num">01</span>
+            <h3 data-i18n="g_c1_t">Explore no seu ritmo</h3>
+            <p data-i18n="g_c1_p">Observe a transição entre dia e noite nas diferentes regiões costeiras e planeje seus deslocamentos antes de entrar em áreas movimentadas.</p>
+          </div>
+        </article>
+
+        <article class="guide-card">
+          <div class="guide-media">
+            <img
+              class="kenburns blur-up"
+              data-placeholder="vehicle-speedboat.webp"
+              src="assets/vehicle-speedboat.webp"
+              srcset="assets/vehicle-speedboat-480.webp 480w, assets/vehicle-speedboat-960.webp 960w, assets/vehicle-speedboat-1600.webp 1600w"
+              sizes="(max-width: 768px) 92vw, 520px"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              data-i18n-alt="alt_boat"
+              alt="Lancha rápida cortando as águas da baía sob o pôr do sol tropical">
+          </div>
+          <div class="guide-body">
+            <span class="guide-num">02</span>
+            <h3 data-i18n="g_c2_t">Domine a condução costeira</h3>
+            <p data-i18n="g_c2_p">De conversíveis clássicos no asfalto molhado a lanchas velozes nos canais, ajuste sua rota ao terreno e às condições climáticas.</p>
+          </div>
+        </article>
+
+        <article class="guide-card">
+          <div class="guide-body">
+            <span class="guide-num">03</span>
+            <h3 data-i18n="g_c3_t">Sintonia e ambiente</h3>
+            <p data-i18n="g_c3_p">As estações locais e os sons da cidade ajudam a perceber mudanças de clima e movimento nos bairros ao redor.</p>
+          </div>
+        </article>
+
+        <article class="guide-card">
+          <div class="guide-body">
+            <span class="guide-num">04</span>
+            <h3 data-i18n="g_c4_t">Registre cada ângulo</h3>
+            <p data-i18n="g_c4_p">Aproveite a luz dourada do entardecer e os reflexos de neon à meia-noite para capturar composições cinematográficas.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. VICE CITY IMERSIVA (SCROLL PINNED + CICLO DIA/NOITE + MAPA) -->
+    <!-- VERIFICAR NA FONTE OFICIAL: nomes finais e descrições das regiões -->
+    <section id="city" class="pin" data-tod="0">
+      <div class="city-hud" aria-live="polite">
+        <div class="city-clock">
+          <span class="clock-dot" aria-hidden="true"></span>
+          <strong id="city-time" data-i18n="v_time_0">18:15 · CREPÚSCULO</strong>
+        </div>
+        <div class="city-progress" aria-hidden="true"><i id="city-bar"></i></div>
+      </div>
+
+      <div class="track">
+        <article class="panel p-intro">
+          <div class="panel-content">
+            <h2 class="vhs-glitch" data-i18n="v_h">Vice City Imersiva</h2>
+            <p class="lead" data-i18n="v_p">Role para atravessar as regiões e acompanhar o ciclo do entardecer à madrugada.</p>
+            <figure class="city-map-wrap">
+              <img
+                src="assets/map-vice-city.svg"
+                width="1200"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                data-i18n-alt="alt_map"
+                alt="Mapa vetorial estilizado original mostrando as ilhas e regiões conceituais">
+              <figcaption data-i18n="v_map_cap">Mapa vetorial estilizado e conceitual (arte original de fã — confirme a geografia oficial nos canais da Rockstar Games).</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="panel p1">
+          <img
+            class="panel-bg kenburns blur-up"
+            data-placeholder="city-ocean-strip.avif"
+            src="assets/city-ocean-strip.avif"
+            srcset="assets/city-ocean-strip-480.avif 480w, assets/city-ocean-strip-960.avif 960w, assets/city-ocean-strip-1600.avif 1600w, assets/city-ocean-strip-2560.avif 2560w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            data-i18n-alt="alt_ocean"
+            alt="Avenida costeira à noite com reflexos de neon no asfalto e carros conversíveis">
+          <div class="panel-content">
+            <span class="region-tag">01 / 04</span>
+            <h3 data-i18n="v_r1_t">Ocean Strip</h3>
+            <p data-i18n="v_r1_p">Calçadão art déco à beira-mar, letreiros magenta refletidos no asfalto úmido e conversíveis desfilando sob as palmeiras.</p>
+          </div>
+        </article>
+
+        <article class="panel p2">
+          <img
+            class="panel-bg kenburns blur-up"
+            data-placeholder="city-everglades.avif"
+            src="assets/city-everglades.avif"
+            srcset="assets/city-everglades-480.avif 480w, assets/city-everglades-960.avif 960w, assets/city-everglades-1600.avif 1600w, assets/city-everglades-2560.avif 2560w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            data-i18n-alt="alt_everglades"
+            alt="Pântano ao amanhecer com neblina dourada, aerobarco e silhueta de jacaré ao longe">
+          <div class="panel-content">
+            <span class="region-tag">02 / 04</span>
+            <h3 data-i18n="v_r2_t">Everglades</h3>
+            <p data-i18n="v_r2_p">Águas paradas sob a neblina do amanhecer, rotas ocultas entre manguezais, aerobarcos e vida selvagem atenta.</p>
+          </div>
+        </article>
+
+        <article class="panel p3">
+          <img
+            class="panel-bg kenburns blur-up"
+            data-placeholder="city-port.avif"
+            src="assets/city-port.avif"
+            srcset="assets/city-port-480.avif 480w, assets/city-port-960.avif 960w, assets/city-port-1600.avif 1600w, assets/city-port-2560.avif 2560w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            data-i18n-alt="alt_port"
+            alt="Porto industrial à noite com guindastes e contêineres sob luz de vapor de sódio">
+          <div class="panel-content">
+            <span class="region-tag">03 / 04</span>
+            <h3 data-i18n="v_r3_t">Port Gellhorn</h3>
+            <p data-i18n="v_r3_p">Guindastes monumentais, pátios de contêineres sob luz de sódio e docas industriais que nunca dormem.</p>
+          </div>
+        </article>
+
+        <article class="panel p4">
+          <img
+            class="panel-bg kenburns blur-up"
+            data-placeholder="city-downtown.avif"
+            src="assets/city-downtown.avif"
+            srcset="assets/city-downtown-480.avif 480w, assets/city-downtown-960.avif 960w, assets/city-downtown-1600.avif 1600w, assets/city-downtown-2560.avif 2560w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            data-i18n-alt="alt_downtown"
+            alt="Centro urbano ao entardecer com arranha-céus, rastros de faróis e vapor nas ruas">
+          <div class="panel-content">
+            <span class="region-tag">04 / 04</span>
+            <h3 data-i18n="v_r4_t">Downtown</h3>
+            <p data-i18n="v_r4_p">Cânions de vidro e concreto, rastros de faróis no trânsito noturno e vapor subindo das galerias subterrâneas.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. PERSONAGENS (TILT 3D + MÁSCARA DE TRANSIÇÃO + VIEW TRANSITIONS) -->
+    <section id="chars" class="sec">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="c_h">Personagens</h2>
+        <p data-i18n="c_sub">Lucia e Jason — artes promocionais oficiais (© Rockstar Games / Take-Two Interactive, uso não comercial de fã).</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Seleção de personagem">
+        <button role="tab" id="tab-char-0" aria-selected="true" aria-controls="card" data-c="0" type="button">Lucia</button>
+        <button role="tab" id="tab-char-1" aria-selected="false" aria-controls="card" data-c="1" type="button">Jason</button>
+      </div>
+
+      <article class="card tilt" id="card" role="tabpanel" aria-labelledby="tab-char-0" aria-live="polite">
+        <div class="portrait-wrap" id="portrait-wrap">
+          <div class="portrait-glow" aria-hidden="true"></div>
+          <img
+            id="char-img"
+            class="portrait-img blur-up"
+            data-placeholder="char-lucia.webp"
+            src="assets/char-lucia.webp"
+            srcset="assets/char-lucia-480.webp 480w, assets/char-lucia-960.webp 960w, assets/char-lucia-1200.webp 1200w"
+            sizes="(max-width: 760px) 88vw, 480px"
+            width="1200"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+            data-i18n-alt="alt_lucia"
+            alt="Ilustração estilizada e anônima de mulher determinada com jaqueta sob luzes neon de rua">
+          <span class="portrait-monogram" id="portrait-monogram" aria-hidden="true">L</span>
+        </div>
+        <div class="char-info">
+          <h3 id="cname">Lucia</h3>
+          <blockquote id="cquote" data-i18n="c_l_q">“A cidade inteira brilha como promessa, mas só fica de pé quem sabe ler a sombra.”</blockquote>
+          <ul class="bars" id="bars"></ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- 5. MODO FOTO DA COMUNIDADE (FILTROS + LIGHTBOX + ZOOM + SWIPE) -->
+    <section id="photomode" class="sec">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="pm_h">Modo Foto da Comunidade</h2>
+        <p data-i18n="pm_sub">Teste os filtros visuais em tempo real e clique em qualquer captura para abrir no lightbox com zoom.</p>
+      </div>
+
+      <div class="filter-bar" role="toolbar" aria-label="Filtros de cor do Modo Foto">
+        <button type="button" class="chip active" data-filter="none" aria-pressed="true" data-i18n="flt_all">Normal</button>
+        <button type="button" class="chip" data-filter="retro" aria-pressed="false" data-i18n="flt_retro">Retrô 80s</button>
+        <button type="button" class="chip" data-filter="neon" aria-pressed="false" data-i18n="flt_neon">Neon Noir</button>
+        <button type="button" class="chip" data-filter="noir" aria-pressed="false" data-i18n="flt_noir">Noir P&amp;B</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid" data-active-filter="none">
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="0" aria-label="Ampliar foto 1">
+            <img class="kenburns blur-up" data-placeholder="gallery-01.avif" src="assets/gallery-01.avif" srcset="assets/gallery-01-480.avif 480w, assets/gallery-01-960.avif 960w, assets/gallery-01-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Bowl da praia ao pôr do sol">
+          </button>
+          <figcaption data-i18n="cap_01">Bowl da praia ao pôr do sol</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="1" aria-label="Ampliar foto 2">
+            <img class="kenburns blur-up" data-placeholder="gallery-02.avif" src="assets/gallery-02.avif" srcset="assets/gallery-02-480.avif 480w, assets/gallery-02-960.avif 960w, assets/gallery-02-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Posto de salva-vidas sob luz neon">
+          </button>
+          <figcaption data-i18n="cap_02">Posto de salva-vidas sob luz neon</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="2" aria-label="Ampliar foto 3">
+            <img class="kenburns blur-up" data-placeholder="gallery-03.avif" src="assets/gallery-03.avif" srcset="assets/gallery-03-480.avif 480w, assets/gallery-03-960.avif 960w, assets/gallery-03-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Terraço panorâmico ao anoitecer">
+          </button>
+          <figcaption data-i18n="cap_03">Terraço panorâmico ao anoitecer</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="3" aria-label="Ampliar foto 4">
+            <img class="kenburns blur-up" data-placeholder="gallery-04.avif" src="assets/gallery-04.avif" srcset="assets/gallery-04-480.avif 480w, assets/gallery-04-960.avif 960w, assets/gallery-04-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Chuva tropical sob o viaduto">
+          </button>
+          <figcaption data-i18n="cap_04">Chuva tropical sob o viaduto</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="4" aria-label="Ampliar foto 5">
+            <img class="kenburns blur-up" data-placeholder="gallery-05.avif" src="assets/gallery-05.avif" srcset="assets/gallery-05-480.avif 480w, assets/gallery-05-960.avif 960w, assets/gallery-05-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Lagoa dos flamingos na hora dourada">
+          </button>
+          <figcaption data-i18n="cap_05">Lagoa dos flamingos na hora dourada</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="5" aria-label="Ampliar foto 6">
+            <img class="kenburns blur-up" data-placeholder="gallery-06.avif" src="assets/gallery-06.avif" srcset="assets/gallery-06-480.avif 480w, assets/gallery-06-960.avif 960w, assets/gallery-06-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Avenida costeira ao amanhecer">
+          </button>
+          <figcaption data-i18n="cap_06">Avenida costeira ao amanhecer</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="6" aria-label="Ampliar foto 7">
+            <img class="kenburns blur-up" data-placeholder="gallery-07.avif" src="assets/gallery-07.avif" srcset="assets/gallery-07-480.avif 480w, assets/gallery-07-960.avif 960w, assets/gallery-07-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Diner retrô à meia-noite">
+          </button>
+          <figcaption data-i18n="cap_07">Diner retrô à meia-noite</figcaption>
+        </figure>
+        <figure class="g-item">
+          <button type="button" class="g-btn" data-index="7" aria-label="Ampliar foto 8">
+            <img class="kenburns blur-up" data-placeholder="gallery-08.avif" src="assets/gallery-08.avif" srcset="assets/gallery-08-480.avif 480w, assets/gallery-08-960.avif 960w, assets/gallery-08-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Via expressa sobre a baía">
+          </button>
+          <figcaption data-i18n="cap_08">Via expressa sobre a baía</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 6. RÁDIO VICE FM (WEB AUDIO API + EQUALIZADOR + CC0) -->
+    <section id="radio" class="sec">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="r_h">Rádio Vice FM</h2>
+        <p data-i18n="r_sub">Sintetizador Web Audio API com equalizador em tempo real. Áudio 100% livre de direitos (CC0), iniciado mudo.</p>
+      </div>
+
+      <div class="radio-card" role="region" aria-label="Reprodutor de Rádio Vice FM">
+        <div class="radio-art">
+          <img
+            class="blur-up"
+            data-placeholder="radio-booth.webp"
+            src="assets/radio-booth.webp"
+            srcset="assets/radio-booth-480.webp 480w, assets/radio-booth-960.webp 960w, assets/radio-booth-1080.webp 1080w"
+            sizes="(max-width: 760px) 80vw, 320px"
+            width="1080"
+            height="1080"
+            loading="lazy"
+            decoding="async"
+            data-i18n-alt="alt_radio"
+            alt="Cabine de rádio retrô iluminada por neon com microfone condensador">
+        </div>
+        <div class="radio-controls">
+          <div class="station-meta" aria-live="polite">
+            <span class="on-air-badge" id="on-air-badge">MUTED</span>
+            <h3 id="station-name">Wave 104.9 FM</h3>
+            <p id="station-genre">Synthwave &amp; Sunset Drive</p>
+          </div>
+
+          <canvas id="eq-canvas" width="480" height="100" aria-hidden="true"></canvas>
+
+          <div class="row radio-btns">
+            <button id="radio-toggle" type="button" class="btn mag" aria-pressed="false" data-i18n="r_play">Ligar som (CC0)</button>
+            <button id="station-next" type="button" class="btn ghost mag" data-i18n="r_next">Trocar estação</button>
+          </div>
+          <p class="radio-status"><small id="radio-status-text" data-i18n="r_status_muted">Áudio desligado (clique em Ligar som para ouvir o synth procedural)</small></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. NOVIDADES (LINHA DO TEMPO PÓS-LANÇAMENTO COM PLACEHOLDERS) -->
+    <!-- VERIFICAR NA FONTE OFICIAL: notas de lançamento, patches e eventos oficiais -->
+    <section id="updates" class="sec narrow">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="nw_h">Novidades &amp; Atualizações</h2>
+        <p data-i18n="nw_sub">Linha do tempo ilustrativa pós-lançamento. Conteúdo marcado como placeholder — verifique notas oficiais da Rockstar Games.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="tl-badge" data-i18n="nw_tag">PLACEHOLDER · VERIFICAR NA FONTE OFICIAL</span>
+          <time datetime="2026-11-19" data-i18n="nw_1_d">Novembro 2026 · Lançamento Global</time>
+          <h3 data-i18n="nw_1_t">Estreia mundial nos consoles de nova geração</h3>
+          <p data-i18n="nw_1_p">Grand Theft Auto VI chega oficialmente ao PlayStation 5 e Xbox Series X|S. (VERIFICAR DETALHES NA FONTE OFICIAL)</p>
+        </li>
+        <li class="tl-item">
+          <span class="tl-badge" data-i18n="nw_tag">PLACEHOLDER · VERIFICAR NA FONTE OFICIAL</span>
+          <time datetime="2026-11" data-i18n="nw_2_d">Pós-Lançamento · Atualização de Estabilidade (Exemplo)</time>
+          <h3 data-i18n="nw_2_t">Ajustes gerais de desempenho e qualidade de vida</h3>
+          <p data-i18n="nw_2_p">Placeholder para futuras notas de versão e melhorias técnicas divulgadas pelos canais oficiais.</p>
+        </li>
+        <li class="tl-item">
+          <span class="tl-badge" data-i18n="nw_tag">PLACEHOLDER · VERIFICAR NA FONTE OFICIAL</span>
+          <time datetime="2026-12" data-i18n="nw_3_d">Comunidade · Eventos &amp; Modo Foto (Exemplo)</time>
+          <h3 data-i18n="nw_3_t">Destaques criativos da comunidade</h3>
+          <p data-i18n="nw_3_p">Placeholder para novidades de comunidade e conteúdos futuros confirmados pelo estúdio.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PLATAFORMAS E LOJAS -->
+    <section id="platforms" class="sec">
+      <h2 class="rv vhs-glitch" data-i18n="p_h">Jogar Agora nas Plataformas</h2>
+      <!-- VERIFICAR NA FONTE OFICIAL: plataformas e links das lojas -->
+      <p class="plat">PlayStation 5 · Xbox Series X|S</p>
+      <p class="plat-sub"><small data-i18n="p_s">Disponível para PlayStation 5 e Xbox Series X|S. Consulte os canais oficiais para outras plataformas.</small></p>
+      <div class="row store-row" style="margin-top:24px">
+        <a id="plat-ps5" class="btn mag" href="https://store.playstation.com/?placeholder=gta-vi-ps5" target="_blank" rel="noopener noreferrer" data-i18n="store_ps">PlayStation Store</a>
+        <a id="plat-xbox" class="btn ghost mag" href="https://www.xbox.com/games/store/?placeholder=gta-vi-xbox" target="_blank" rel="noopener noreferrer" data-i18n="store_xb">Microsoft Store</a>
+      </div>
+    </section>
+
+    <!-- 8. COMUNIDADE & NEWSLETTER (LGPD) -->
+    <section id="community" class="sec narrow">
+      <div class="sec-head">
+        <h2 class="rv vhs-glitch" data-i18n="cm_h">Comunidade &amp; Newsletter</h2>
+        <p data-i18n="cm_sub">Receba novidades e atualizações deste projeto conceitual e conecte-se com outros fãs.</p>
+      </div>
+
+      <div class="social-grid" aria-label="Redes sociais da comunidade">
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-pill mag">X / Twitter</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-pill mag">Instagram</a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-pill mag">YouTube</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-pill mag">TikTok</a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-pill mag">Discord</a>
+      </div>
+
+      <form id="form" novalidate>
+        <label for="email" data-i18n="lbl_email">Seu melhor e-mail</label>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="voce@email.com" aria-describedby="err">
+        <label class="chk">
+          <input id="lgpd" name="lgpd" type="checkbox" required>
+          <span>
+            <span data-i18n="lbl_lgpd">Concordo em receber novidades e atualizações e aceito a</span>
+            <a href="legal/privacy.html" data-i18n="lbl_privacy">Política de Privacidade (LGPD)</a>.
+          </span>
+        </label>
+        <p id="err" role="alert" aria-live="assertive"></p>
+        <button class="btn mag" type="submit" data-i18n="send">Receber novidades e atualizações</button>
+      </form>
+      <p id="ok" role="status" hidden data-i18n="ok_msg">Inscrição confirmada! Você receberá novidades e atualizações em breve.</p>
+    </section>
+
+    <!-- FAQ PÓS-LANÇAMENTO -->
+    <section id="faq" class="sec narrow">
+      <h2 class="rv vhs-glitch" data-i18n="faq_h">Perguntas Frequentes (FAQ)</h2>
+      <details>
+        <summary data-i18n="faq_q1">Onde comprar Grand Theft Auto VI?</summary>
+        <p data-i18n="faq_a1">Você pode adquirir o jogo nas lojas oficiais PlayStation Store (PS5) e Microsoft Store (Xbox Series X|S) ou em revendedores autorizados. Os botões 'Jogar agora' nesta página apontam para links configuráveis em js/config.js (VERIFICAR NA FONTE OFICIAL).</p>
+      </details>
+      <details>
+        <summary data-i18n="faq_q2">Quais plataformas são suportadas no lançamento?</summary>
+        <p data-i18n="faq_a2">O jogo está disponível para PlayStation 5 e Xbox Series X|S. Informações sobre outras plataformas devem ser verificadas diretamente nos canais oficiais da Rockstar Games.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq_q3">Há conteúdo novo ou atualizações previstas?</summary>
+        <p data-i18n="faq_a3">Qualquer anúncio sobre atualizações, patches ou conteúdos adicionais é publicado exclusivamente pela Rockstar Games em seu site e Newswire oficial. A seção Novidades desta página contém apenas exemplos marcados como placeholder.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq_q4">Este site e as imagens são oficiais?</summary>
+        <p data-i18n="faq_a4">Não. Este é um projeto conceitual de fã, sem fins lucrativos e sem nenhuma afiliação com a Rockstar Games ou Take-Two Interactive. Todas as imagens são originais, geradas por IA / ilustração procedural, sem rostos reais e sem marcas oficiais.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="ft_fan">Projeto conceitual de fã sem fins lucrativos. Não afiliado à Rockstar Games ou Take-Two Interactive.</p>
+    <p class="ai-disclaimer" data-i18n="ft_ai">Nota de transparência e direitos: Retratos dos personagens © Rockstar Games / Take-Two Interactive (uso editorial/fã não comercial). Demais cenários, galeria e áudio (CC0) são originais/IA.</p>
+    <p>
+      <a href="legal/privacy.html" data-i18n="ft_priv">Privacidade</a> ·
+      <a href="legal/terms.html" data-i18n="ft_terms">Termos</a> ·
+      <a href="assets/PROMPTS.md">Prompts de IA</a>
+    </p>
+    <p><small data-i18n="ft_rate">Classificação indicativa: 18 anos (consulte a classificação oficial da sua região).</small></p>
+  </footer>
+
+  <!-- MODAL DO TRAILER (FOCO PRESO + ESC) -->
+  <div id="trailer-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="trailer-modal-title" hidden>
+    <div class="box">
+      <div class="modal-bar">
+        <strong id="trailer-modal-title" data-i18n="t_h">Trailer de Lançamento</strong>
+        <div class="lb-actions">
+          <a id="trailer-yt-ext" class="chip" href="https://www.youtube.com/watch?v=VQRLujxTm3c" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          <button class="x" type="button" data-close aria-label="Fechar modal">✕</button>
+        </div>
+      </div>
+      <div class="yt-wrap">
+        <iframe
+          id="trailer-iframe"
+          title="Grand Theft Auto VI — Trailer no YouTube"
+          src=""
+          data-src="https://www.youtube-nocookie.com/embed/VQRLujxTm3c?autoplay=1&rel=0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX DO MODO FOTO (ZOOM + TECLADO + SWIPE + FOCO PRESO) -->
+  <div id="lightbox" class="modal lightbox" role="dialog" aria-modal="true" aria-label="Visualizador do Modo Foto" hidden>
+    <div class="lb-box">
+      <div class="lb-toolbar">
+        <span id="lb-counter" class="lb-counter" aria-live="polite">1 / 8</span>
+        <div class="lb-actions">
+          <button type="button" id="lb-zoom" class="chip" aria-pressed="false" aria-label="Alternar zoom">Zoom +</button>
+          <button type="button" id="lb-close" class="x" aria-label="Fechar galeria">✕</button>
+        </div>
+      </div>
+      <div class="lb-stage" id="lb-stage">
+        <button type="button" id="lb-prev" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
+        <figure class="lb-figure">
+          <img id="lb-img" src="assets/gallery-01.avif" alt="" width="1600" height="1000">
+          <figcaption id="lb-cap"></figcaption>
+        </figure>
+        <button type="button" id="lb-next" class="lb-nav lb-next" aria-label="Próxima foto">›</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
