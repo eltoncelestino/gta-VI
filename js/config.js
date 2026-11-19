@@ -28,6 +28,15 @@ window.GTA_CONFIG = {
     discord: 'https://discord.com'
   },
 
+  // Posição vertical (object-position) por slide do Hero para preservar rostos
+  heroSlidesPosition: [
+    'center 20%',
+    'center 20%',
+    'center 22%',
+    'center 45%',
+    'center 15%'
+  ],
+
   // Flags de recursos e acessibilidade
   features: {
     webgl: true,        // Fundo WebGL shader (ondas de calor e partículas de vaga-lume)

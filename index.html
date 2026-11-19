@@ -173,7 +173,13 @@
         <div class="hero-scrim" aria-hidden="true"></div>
       </div>
 
-      <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Selecionar imagem de capa"></div>
+      <div class="hero-controls" aria-label="Controles do carrossel da capa">
+        <button type="button" id="hero-prev" class="chip hero-nav-btn" aria-label="Slide anterior" data-i18n-aria="hero_prev">‹</button>
+        <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Selecionar imagem de capa"></div>
+        <button type="button" id="hero-next" class="chip hero-nav-btn" aria-label="Próximo slide" data-i18n-aria="hero_next">›</button>
+        <button type="button" id="hero-pause" class="chip hero-pause-btn" aria-pressed="false" data-i18n="hero_pause">Pausar</button>
+        <span id="hero-live" class="sr-only" aria-live="polite"></span>
+      </div>
 
       <div class="hero-in">
         <!-- Selo animado DISPONÍVEL AGORA + contador de dias pós-lançamento -->
@@ -351,6 +357,7 @@
     <!-- 3. VICE CITY IMERSIVA (SCROLL PINNED + CICLO DIA/NOITE + MAPA) -->
     <!-- VERIFICAR NA FONTE OFICIAL: nomes finais e descrições das regiões -->
     <section id="city" class="pin" data-tod="0" data-theme="orange">
+      <canvas id="city-atmosphere" aria-hidden="true"></canvas>
       <div class="city-hud" aria-live="polite">
         <div class="city-clock">
           <span class="clock-dot" aria-hidden="true"></span>
@@ -365,18 +372,24 @@
             <h2 class="vhs-glitch" data-i18n="v_h">Vice City Imersiva</h2>
             <p class="lead" data-i18n="v_p">Role para atravessar as regiões e acompanhar o ciclo do entardecer à madrugada.</p>
             <figure class="city-map-wrap">
-              <img
-                class="blur-up"
-                data-placeholder="map-leonida.avif"
-                src="assets/map-leonida.avif"
-                srcset="assets/map-leonida-480.avif 480w, assets/map-leonida-960.avif 960w"
-                sizes="(max-width: 768px) 88vw, 520px"
-                width="733"
-                height="1024"
-                loading="lazy"
-                decoding="async"
-                data-i18n-alt="alt_map"
-                alt="Mapa ilustrativo do Estado de Leonida com Vice City, Port Gellhorn, Grassrivers e Leonida Keys">
+              <div class="map-stage" id="city-map-stage">
+                <img
+                  class="blur-up"
+                  data-placeholder="map-leonida.avif"
+                  src="assets/map-leonida.avif"
+                  srcset="assets/map-leonida-480.avif 480w, assets/map-leonida-960.avif 960w"
+                  sizes="(max-width: 768px) 88vw, 520px"
+                  width="733"
+                  height="1024"
+                  loading="lazy"
+                  decoding="async"
+                  data-i18n-alt="alt_map"
+                  alt="Mapa ilustrativo do Estado de Leonida com Vice City, Port Gellhorn, Grassrivers e Leonida Keys">
+                <button type="button" class="map-pin" data-panel="1" style="left:82%;top:50%" aria-label="Ir para Ocean Strip (Vice Beach)"><span>01</span></button>
+                <button type="button" class="map-pin" data-panel="2" style="left:43%;top:72%" aria-label="Ir para Everglades / Grassrivers"><span>02</span></button>
+                <button type="button" class="map-pin" data-panel="3" style="left:28%;top:35%" aria-label="Ir para Port Gellhorn"><span>03</span></button>
+                <button type="button" class="map-pin" data-panel="4" style="left:66%;top:53%" aria-label="Ir para Downtown Vice City"><span>04</span></button>
+              </div>
               <figcaption data-i18n="v_map_cap">Mapa conceitual do Estado de Leonida (referência comunitária — confirme a geografia oficial nos canais da Rockstar Games).</figcaption>
             </figure>
           </div>
@@ -522,49 +535,49 @@
           <button type="button" class="g-btn" data-index="0" aria-label="Ampliar foto 1">
             <img class="kenburns blur-up" data-placeholder="gallery-01.avif" src="assets/gallery-01.avif" srcset="assets/gallery-01-480.avif 480w, assets/gallery-01-960.avif 960w, assets/gallery-01-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Bowl da praia ao pôr do sol">
           </button>
-          <figcaption data-i18n="cap_01">Bowl da praia ao pôr do sol</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_01">Bowl da praia ao pôr do sol</span><button type="button" class="like-btn" data-like="0" aria-pressed="false" aria-label="Curtir foto 1">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="1" aria-label="Ampliar foto 2">
             <img class="kenburns blur-up" data-placeholder="gallery-02.avif" src="assets/gallery-02.avif" srcset="assets/gallery-02-480.avif 480w, assets/gallery-02-960.avif 960w, assets/gallery-02-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Posto de salva-vidas sob luz neon">
           </button>
-          <figcaption data-i18n="cap_02">Posto de salva-vidas sob luz neon</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_02">Posto de salva-vidas sob luz neon</span><button type="button" class="like-btn" data-like="1" aria-pressed="false" aria-label="Curtir foto 2">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="2" aria-label="Ampliar foto 3">
             <img class="kenburns blur-up" data-placeholder="gallery-03.avif" src="assets/gallery-03.avif" srcset="assets/gallery-03-480.avif 480w, assets/gallery-03-960.avif 960w, assets/gallery-03-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Terraço panorâmico ao anoitecer">
           </button>
-          <figcaption data-i18n="cap_03">Terraço panorâmico ao anoitecer</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_03">Terraço panorâmico ao anoitecer</span><button type="button" class="like-btn" data-like="2" aria-pressed="false" aria-label="Curtir foto 3">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="3" aria-label="Ampliar foto 4">
             <img class="kenburns blur-up" data-placeholder="gallery-04.avif" src="assets/gallery-04.avif" srcset="assets/gallery-04-480.avif 480w, assets/gallery-04-960.avif 960w, assets/gallery-04-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Chuva tropical sob o viaduto">
           </button>
-          <figcaption data-i18n="cap_04">Chuva tropical sob o viaduto</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_04">Chuva tropical sob o viaduto</span><button type="button" class="like-btn" data-like="3" aria-pressed="false" aria-label="Curtir foto 4">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="4" aria-label="Ampliar foto 5">
             <img class="kenburns blur-up" data-placeholder="gallery-05.avif" src="assets/gallery-05.avif" srcset="assets/gallery-05-480.avif 480w, assets/gallery-05-960.avif 960w, assets/gallery-05-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Lagoa dos flamingos na hora dourada">
           </button>
-          <figcaption data-i18n="cap_05">Lagoa dos flamingos na hora dourada</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_05">Lagoa dos flamingos na hora dourada</span><button type="button" class="like-btn" data-like="4" aria-pressed="false" aria-label="Curtir foto 5">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="5" aria-label="Ampliar foto 6">
             <img class="kenburns blur-up" data-placeholder="gallery-06.avif" src="assets/gallery-06.avif" srcset="assets/gallery-06-480.avif 480w, assets/gallery-06-960.avif 960w, assets/gallery-06-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Avenida costeira ao amanhecer">
           </button>
-          <figcaption data-i18n="cap_06">Avenida costeira ao amanhecer</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_06">Avenida costeira ao amanhecer</span><button type="button" class="like-btn" data-like="5" aria-pressed="false" aria-label="Curtir foto 6">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="6" aria-label="Ampliar foto 7">
             <img class="kenburns blur-up" data-placeholder="gallery-07.avif" src="assets/gallery-07.avif" srcset="assets/gallery-07-480.avif 480w, assets/gallery-07-960.avif 960w, assets/gallery-07-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Diner retrô à meia-noite">
           </button>
-          <figcaption data-i18n="cap_07">Diner retrô à meia-noite</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_07">Diner retrô à meia-noite</span><button type="button" class="like-btn" data-like="6" aria-pressed="false" aria-label="Curtir foto 7">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
         <figure class="g-item">
           <button type="button" class="g-btn" data-index="7" aria-label="Ampliar foto 8">
             <img class="kenburns blur-up" data-placeholder="gallery-08.avif" src="assets/gallery-08.avif" srcset="assets/gallery-08-480.avif 480w, assets/gallery-08-960.avif 960w, assets/gallery-08-1600.avif 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 280px" width="1600" height="1000" loading="lazy" decoding="async" alt="Via expressa sobre a baía">
           </button>
-          <figcaption data-i18n="cap_08">Via expressa sobre a baía</figcaption>
+          <figcaption class="g-cap"><span data-i18n="cap_08">Via expressa sobre a baía</span><button type="button" class="like-btn" data-like="7" aria-pressed="false" aria-label="Curtir foto 8">♥ <span class="like-count" aria-live="polite">0</span></button></figcaption>
         </figure>
       </div>
     </section>
@@ -578,6 +591,7 @@
 
       <div class="radio-card" role="region" aria-label="Reprodutor de Rádio Vice FM">
         <div class="radio-art">
+          <div class="radio-vinyl" id="radio-vinyl" aria-hidden="true"></div>
           <img
             class="blur-up"
             data-placeholder="radio-booth.webp"
@@ -603,6 +617,11 @@
           <div class="row radio-btns">
             <button id="radio-toggle" type="button" class="btn mag" aria-pressed="false" data-i18n="r_play">Ligar som (CC0)</button>
             <button id="station-next" type="button" class="btn ghost mag" data-i18n="r_next">Trocar estação</button>
+          </div>
+          <div class="radio-vol-row">
+            <label for="radio-volume" data-i18n="r_vol">Volume da rádio</label>
+            <input id="radio-volume" type="range" min="0" max="100" value="65" aria-valuetext="65%">
+            <span id="radio-vol-val" aria-hidden="true">65%</span>
           </div>
           <p class="radio-status"><small id="radio-status-text" data-i18n="r_status_muted">Áudio desligado (clique em Ligar som para ouvir o synth procedural)</small></p>
         </div>
@@ -744,6 +763,7 @@
       <div class="lb-toolbar">
         <span id="lb-counter" class="lb-counter" aria-live="polite">1 / 8</span>
         <div class="lb-actions">
+          <button type="button" id="lb-hold-orig" class="chip" aria-pressed="false" data-i18n="lb_hold_orig">Segurar para ver original</button>
           <button type="button" id="lb-zoom" class="chip" aria-pressed="false" aria-label="Alternar zoom">Zoom +</button>
           <button type="button" id="lb-close" class="x" aria-label="Fechar galeria">✕</button>
         </div>
@@ -751,7 +771,14 @@
       <div class="lb-stage" id="lb-stage">
         <button type="button" id="lb-prev" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
         <figure class="lb-figure">
-          <img id="lb-img" src="assets/gallery-01.avif" alt="" width="1600" height="1000">
+          <div class="lb-compare-wrap" id="lb-compare-wrap" style="--compare: 100%">
+            <img id="lb-img-orig" class="lb-img-base" src="assets/gallery-01.avif" alt="" width="1600" height="1000">
+            <img id="lb-img" class="lb-img-filtered" src="assets/gallery-01.avif" alt="" width="1600" height="1000">
+            <div class="lb-compare-line" aria-hidden="true"></div>
+          </div>
+          <div class="lb-compare-ctrl">
+            <input id="lb-compare" type="range" min="0" max="100" value="100" aria-label="Comparar Antes e Depois (arraste ou use as setas)" data-i18n-aria="lb_compare">
+          </div>
           <figcaption id="lb-cap"></figcaption>
         </figure>
         <button type="button" id="lb-next" class="lb-nav lb-next" aria-label="Próxima foto">›</button>

@@ -119,6 +119,24 @@ gta-VI/
 
 ---
 
+## 🛡️ Fallbacks e Resiliência
+
+- **Sem WebGL / Canvas**: o fundo exibe o gradiente base `#0A0612` e a seção `#city` usa transições CSS via `[data-tod="0..3"]`.
+- **Sem `mask-composite`**: `@supports not (mask-composite: exclude)` desativa o pseudoelemento `::before` e mantém a borda sólida translúcida `--border`.
+- **Sem `backdrop-filter`**: a camada escura `--surface` (`rgba(12, 7, 22, 0.84)`) garante contraste ≥ 4.5:1 sobre os cards.
+- **Sem `localStorage`**: curtidas do Modo Foto e volume da Rádio operam normalmente em memória dentro de `try/catch`.
+- **Sem Web Audio API**: o player da Rádio executa visualizador animado simulado respeitando `prefers-reduced-motion`.
+
+## 🧪 Verificação Automatizada (Playwright)
+
+```bash
+npm i -D playwright
+npx playwright install chromium
+node scripts/verify.mjs http://localhost:8000
+```
+
+---
+
 ## 📄 Direitos Autorais e Créditos
 
 - Os retratos promocionais dos personagens na seção **Personagens** são `© Rockstar Games / Take-Two Interactive`, utilizados exclusivamente em caráter de projeto conceitual de fã sem fins lucrativos (conforme a Política de Fan Site da Take-Two).
