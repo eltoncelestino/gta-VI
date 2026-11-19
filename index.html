@@ -20,7 +20,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/icon-192.png">
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="preload" as="image" href="assets/hero-sky.avif" imagesrcset="assets/hero-sky-480.avif 480w, assets/hero-sky-960.avif 960w, assets/hero-sky-1600.avif 1600w, assets/hero-sky-2560.avif 2560w" imagesizes="100vw">
+  <link rel="preload" as="image" href="assets/hero-01.avif" imagesrcset="assets/hero-01-480.avif 480w, assets/hero-01-960.avif 960w, assets/hero-01-1600.avif 1600w" imagesizes="100vw">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap">
@@ -97,43 +97,65 @@
   </header>
 
   <main id="main">
-    <!-- 1. HERO CINEMATOGRÁFICO EM CAMADAS (PÓS-LANÇAMENTO) -->
+    <!-- 1. HERO CINEMATOGRÁFICO EM CARROSSEL (PÓS-LANÇAMENTO) -->
     <section id="hero" class="hero">
-      <div class="hero-stage" id="hero-stage">
-        <img
-          class="layer layer-sky"
-          data-speed="-0.15"
-          data-depth="0.02"
-          src="assets/hero-sky.avif"
-          srcset="assets/hero-sky-480.avif 480w, assets/hero-sky-960.avif 960w, assets/hero-sky-1600.avif 1600w, assets/hero-sky-2560.avif 2560w"
-          sizes="100vw"
-          width="2560"
-          height="1097"
-          fetchpriority="high"
-          decoding="async"
-          data-i18n-alt="alt_sky"
-          alt="Céu tropical de pôr do sol em tons de magenta e laranja sobre o horizonte">
-        <img
-          class="layer layer-skyline"
-          data-speed="0.08"
-          data-depth="0.045"
-          src="assets/hero-skyline.png"
-          width="2560"
-          height="700"
-          decoding="async"
-          data-i18n-alt="alt_skyline"
-          alt="Silhueta de edifícios art déco com janelas iluminadas em neon azul-petróleo e rosa">
-        <img
-          class="layer layer-palms"
-          data-speed="0.24"
-          data-depth="0.08"
-          src="assets/hero-palms.png"
-          width="2560"
-          height="1000"
-          decoding="async"
-          data-i18n-alt="alt_palms"
-          alt="Silhueta de palmeiras tropicais em contraluz no primeiro plano">
+      <div class="hero-stage" id="hero-stage" aria-roledescription="carousel" aria-label="Galeria de capa">
+        <div class="hero-slides" id="hero-slides">
+          <img
+            class="hero-slide is-active"
+            src="assets/hero-01.avif"
+            srcset="assets/hero-01-480.avif 480w, assets/hero-01-960.avif 960w, assets/hero-01-1600.avif 1600w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            fetchpriority="high"
+            decoding="async"
+            alt="Lucia e Jason com bandanas em cena de ação (© Rockstar Games)">
+          <img
+            class="hero-slide"
+            src="assets/hero-02.avif"
+            srcset="assets/hero-02-480.avif 480w, assets/hero-02-960.avif 960w, assets/hero-02-1600.avif 1600w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="Lucia e Jason no píer com lancha e helicóptero em Vice City (© Rockstar Games)">
+          <img
+            class="hero-slide"
+            src="assets/hero-03.avif"
+            srcset="assets/hero-03-480.avif 480w, assets/hero-03-960.avif 960w, assets/hero-03-1600.avif 1600w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="Lucia e Jason no capô de carro clássico ao pôr do sol em Vice City (© Rockstar Games)">
+          <img
+            class="hero-slide"
+            src="assets/hero-04.avif"
+            srcset="assets/hero-04-480.avif 480w, assets/hero-04-960.avif 960w, assets/hero-04-1600.avif 1600w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="Ponte costeira de Vice City ao entardecer com pôr do sol magenta (© Rockstar Games)">
+          <img
+            class="hero-slide"
+            src="assets/hero-05.avif"
+            srcset="assets/hero-05-480.avif 480w, assets/hero-05-960.avif 960w, assets/hero-05-1600.avif 1600w"
+            sizes="100vw"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            alt="Jason e Lucia em varanda panorâmica sobre a baía de Vice City (© Rockstar Games)">
+        </div>
+        <div class="hero-scrim" aria-hidden="true"></div>
       </div>
+
+      <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Selecionar imagem de capa"></div>
 
       <div class="hero-in">
         <!-- Selo animado DISPONÍVEL AGORA + contador de dias pós-lançamento -->

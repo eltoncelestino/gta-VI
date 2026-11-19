@@ -64,6 +64,44 @@
     .catch(() => {});
 
   // =========================================================================
+  // 2B. CARROSSEL DA CAPA (HERO)
+  // =========================================================================
+  const heroSlides = $$('#hero-slides .hero-slide');
+  const heroDots = $('#hero-dots');
+  let heroIdx = 0;
+  let heroTimer = null;
+
+  function showHeroSlide(next) {
+    if (!heroSlides.length) return;
+    heroIdx = (next + heroSlides.length) % heroSlides.length;
+    heroSlides.forEach((s, i) => s.classList.toggle('is-active', i === heroIdx));
+    if (heroDots) {
+      $$('button', heroDots).forEach((b, i) => b.setAttribute('aria-selected', String(i === heroIdx)));
+    }
+  }
+
+  if (heroSlides.length > 1 && heroDots) {
+    heroDots.innerHTML = heroSlides
+      .map((_, i) => `<button type="button" role="tab" aria-selected="${i === 0}" aria-label="Imagem ${i + 1}"></button>`)
+      .join('');
+    $$('button', heroDots).forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        vibrate(8);
+        showHeroSlide(i);
+        resetHeroTimer();
+      });
+    });
+  }
+
+  function resetHeroTimer() {
+    clearInterval(heroTimer);
+    if (!reduceMotion && heroSlides.length > 1) {
+      heroTimer = setInterval(() => showHeroSlide(heroIdx + 1), 5500);
+    }
+  }
+  resetHeroTimer();
+
+  // =========================================================================
   // 3. SPLIT TITLE LETTERS & STORY WORDS
   // =========================================================================
   $$('#title span').forEach(span => {
