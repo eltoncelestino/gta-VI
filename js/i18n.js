@@ -61,6 +61,7 @@ window.I18N = {
 
     c_h: "Personagens",
     c_sub: "Lucia e Jason — artes promocionais oficiais (© Rockstar Games / Take-Two Interactive, uso não comercial de fã).",
+    char_credit: "© Rockstar Games / Take-Two Interactive · Uso não comercial de fã",
     c_l_q: "“A cidade inteira brilha como promessa, mas só fica de pé quem sabe ler a sombra.”",
     c_j_q: "“Quando o retrovisor fica pequeno demais para o passado, a única saída é acelerar.”",
     stat_cunning: "Astúcia",
@@ -204,6 +205,7 @@ window.I18N = {
 
     c_h: "Characters",
     c_sub: "Lucia & Jason — official promotional artwork (© Rockstar Games / Take-Two Interactive, non-commercial fan use).",
+    char_credit: "© Rockstar Games / Take-Two Interactive · Non-commercial fan use",
     c_l_q: "“The whole city shines like a promise, but only those who read the shadows stay standing.”",
     c_j_q: "“When the rearview mirror gets too small for the past, the only way out is full throttle.”",
     stat_cunning: "Cunning",

@@ -777,10 +777,24 @@ figure:hover .kenburns,
 .portrait-monogram {
   position: absolute;
   right: 16px;
-  bottom: 8px;
+  bottom: 28px;
   font: 5.5rem var(--head);
   color: rgba(255, 255, 255, 0.18);
   pointer-events: none;
+}
+.portrait-credit {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(10, 6, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.72rem;
+  color: var(--cream);
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
 .char-info h3 {
   font-size: clamp(2.8rem, 6vw, 4.5rem);
