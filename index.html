@@ -78,9 +78,9 @@
 
   <a class="skip" href="#main" data-i18n="skip">Ir ao conteúdo principal</a>
 
-  <header class="top">
+  <header class="top" id="site-header">
     <a href="#hero" class="logo" aria-label="GTA VI Início">VI</a>
-    <nav aria-label="Principal">
+    <nav aria-label="Principal" id="main-nav">
       <a href="#guide" data-i18n="n_guide">Guia</a>
       <a href="#city" data-i18n="n_city">Vice City</a>
       <a href="#chars" data-i18n="n_chars">Personagens</a>
@@ -93,12 +93,30 @@
       <button class="chip" id="sfx-toggle" type="button" aria-pressed="false" data-i18n="ui_sfx_off">SFX: OFF</button>
       <button class="chip lang" id="lang" type="button" aria-label="Mudar idioma">EN</button>
       <a href="#platforms" class="btn mag btn-sm" data-i18n="cta">Jogar agora</a>
+      <button class="chip nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Abrir menu" data-i18n-aria="menu_open">☰</button>
     </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   </header>
+
+  <aside id="mobile-drawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Menu de navegação" hidden>
+    <div class="drawer-head">
+      <span class="logo">VI</span>
+      <button type="button" id="drawer-close" class="x" aria-label="Fechar menu" data-i18n-aria="menu_close">✕</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Menu móvel">
+      <a href="#guide" data-i18n="n_guide">Guia</a>
+      <a href="#city" data-i18n="n_city">Vice City</a>
+      <a href="#chars" data-i18n="n_chars">Personagens</a>
+      <a href="#photomode" data-i18n="n_photo">Modo Foto</a>
+      <a href="#radio" data-i18n="n_radio">Rádio</a>
+      <a href="#updates" data-i18n="n_news">Novidades</a>
+      <a href="#faq" data-i18n="n_faq">FAQ</a>
+    </nav>
+  </aside>
 
   <main id="main">
     <!-- 1. HERO CINEMATOGRÁFICO EM CARROSSEL (PÓS-LANÇAMENTO) -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" data-theme="pink">
       <div class="hero-stage" id="hero-stage" aria-roledescription="carousel" aria-label="Galeria de capa">
         <div class="hero-slides" id="hero-slides">
           <img
@@ -232,7 +250,7 @@
     </section>
 
     <!-- 2. GUIA DO JOGADOR (SEM SPOILERS) -->
-    <section id="guide" class="sec">
+    <section id="guide" class="sec" data-theme="teal">
       <div class="sec-head">
         <h2 class="rv vhs-glitch" data-i18n="g_h">Guia do Jogador</h2>
         <!-- VERIFICAR NA FONTE OFICIAL: mecânicas confirmadas -->
@@ -332,7 +350,7 @@
 
     <!-- 3. VICE CITY IMERSIVA (SCROLL PINNED + CICLO DIA/NOITE + MAPA) -->
     <!-- VERIFICAR NA FONTE OFICIAL: nomes finais e descrições das regiões -->
-    <section id="city" class="pin" data-tod="0">
+    <section id="city" class="pin" data-tod="0" data-theme="orange">
       <div class="city-hud" aria-live="polite">
         <div class="city-clock">
           <span class="clock-dot" aria-hidden="true"></span>
@@ -447,7 +465,7 @@
     </section>
 
     <!-- 4. PERSONAGENS (TILT 3D + MÁSCARA DE TRANSIÇÃO + VIEW TRANSITIONS) -->
-    <section id="chars" class="sec">
+    <section id="chars" class="sec" data-theme="pink">
       <div class="sec-head">
         <h2 class="rv vhs-glitch" data-i18n="c_h">Personagens</h2>
         <p data-i18n="c_sub">Lucia e Jason — artes promocionais oficiais (© Rockstar Games / Take-Two Interactive, uso não comercial de fã).</p>
@@ -486,7 +504,7 @@
     </section>
 
     <!-- 5. MODO FOTO DA COMUNIDADE (FILTROS + LIGHTBOX + ZOOM + SWIPE) -->
-    <section id="photomode" class="sec">
+    <section id="photomode" class="sec" data-theme="teal">
       <div class="sec-head">
         <h2 class="rv vhs-glitch" data-i18n="pm_h">Modo Foto da Comunidade</h2>
         <p data-i18n="pm_sub">Teste os filtros visuais em tempo real e clique em qualquer captura para abrir no lightbox com zoom.</p>
@@ -552,7 +570,7 @@
     </section>
 
     <!-- 6. RÁDIO VICE FM (WEB AUDIO API + EQUALIZADOR + CC0) -->
-    <section id="radio" class="sec">
+    <section id="radio" class="sec" data-theme="orange">
       <div class="sec-head">
         <h2 class="rv vhs-glitch" data-i18n="r_h">Rádio Vice FM</h2>
         <p data-i18n="r_sub">Sintetizador Web Audio API com equalizador em tempo real. Áudio 100% livre de direitos (CC0), iniciado mudo.</p>
@@ -593,7 +611,7 @@
 
     <!-- 7. NOVIDADES (LINHA DO TEMPO PÓS-LANÇAMENTO COM PLACEHOLDERS) -->
     <!-- VERIFICAR NA FONTE OFICIAL: notas de lançamento, patches e eventos oficiais -->
-    <section id="updates" class="sec narrow">
+    <section id="updates" class="sec narrow" data-theme="pink">
       <div class="sec-head">
         <h2 class="rv vhs-glitch" data-i18n="nw_h">Novidades &amp; Atualizações</h2>
         <p data-i18n="nw_sub">Linha do tempo ilustrativa pós-lançamento. Conteúdo marcado como placeholder — verifique notas oficiais da Rockstar Games.</p>
@@ -686,7 +704,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer id="site-footer">
     <p data-i18n="ft_fan">Projeto conceitual de fã sem fins lucrativos. Não afiliado à Rockstar Games ou Take-Two Interactive.</p>
     <p class="ai-disclaimer" data-i18n="ft_ai">Nota de transparência e direitos: Retratos dos personagens © Rockstar Games / Take-Two Interactive (uso editorial/fã não comercial). Demais cenários, galeria e áudio (CC0) são originais/IA.</p>
     <p>

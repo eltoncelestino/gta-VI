@@ -5,6 +5,8 @@
 window.I18N = {
   pt: {
     skip: "Ir ao conteúdo principal",
+    menu_open: "Abrir menu",
+    menu_close: "Fechar menu",
     ui_sfx_off: "SFX: OFF",
     ui_sfx_on: "SFX: ON",
     n_guide: "Guia",
@@ -149,6 +151,8 @@ window.I18N = {
   },
   en: {
     skip: "Skip to main content",
+    menu_open: "Open menu",
+    menu_close: "Close menu",
     ui_sfx_off: "SFX: OFF",
     ui_sfx_on: "SFX: ON",
     n_guide: "Guide",
