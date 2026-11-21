@@ -1,5 +1,7 @@
 # Grand Theft Auto VI — Landing Page Conceitual de Fã (Pós-Lançamento)
 
+🌐 **Demo ao vivo (Render):** [https://gta-vi-gvxo.onrender.com/](https://gta-vi-gvxo.onrender.com/)
+
 ![Vice City Neon-Noir Banner](assets/og-image.png)
 
 > **Aviso Legal:** Este é um **projeto conceitual de fã**, estritamente **sem fins lucrativos** e **sem afiliação com a Rockstar Games ou Take-Two Interactive**. Todas as marcas pertencem aos seus respectivos titulares.
@@ -115,7 +117,7 @@ gta-VI/
 
 1. **`js/config.js`**: Ajuste `releaseDate`, links oficiais de `stores.ps5`, `stores.xbox`, `social.*`, `trailer.youtubeId` e flags de recursos (`webgl`, `uiSound`, `radioMuted`, `haptics`, `gyroParallax`).
 2. **Pipeline de Imagens**: Caso substitua imagens em `assets/`, execute `node scripts/optimize.mjs` (requer `npm i -D sharp`) para gerar os novos `srcset` e `placeholders.json`.
-3. **Publicação**: Substitua `SEU-DOMINIO.com` e `SEU-EMAIL@dominio.com` em `index.html`, `robots.txt`, `sitemap.xml` e `legal/`.
+3. **Publicação**: A URL de produção está configurada para `https://gta-vi-gvxo.onrender.com/` em `index.html`, `robots.txt` e `sitemap.xml` (caso publique em domínio próprio, ajuste essas referências e `SEU-EMAIL@dominio.com` em `legal/`).
 
 ---
 
