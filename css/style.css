@@ -1457,18 +1457,49 @@ details p {
 
 /* Footer */
 footer {
-  padding: 56px 6vw;
+  padding: 64px 6vw 52px;
   text-align: center;
-  background: rgba(5, 3, 10, 0.95);
+  background: linear-gradient(180deg, rgba(10, 6, 18, 0.92), rgba(5, 3, 10, 0.98));
   border-top: 1px solid var(--border);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
   display: grid;
-  gap: 10px;
+  justify-items: center;
+  gap: 14px;
+}
+footer p {
+  margin: 0 auto;
+  max-width: 82ch;
+  text-wrap: balance;
+  color: rgba(255, 244, 230, 0.88);
+}
+footer a {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 244, 230, 0.35);
+  padding-bottom: 2px;
+  margin: 0 6px;
+  transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+footer a:hover,
+footer a:focus-visible {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+footer small {
+  color: rgba(255, 244, 230, 0.65);
+  font-size: 0.82rem;
 }
 .ai-disclaimer {
   color: var(--teal);
-  max-width: 75ch;
+  max-width: 80ch;
+  text-wrap: balance;
   margin: 0 auto;
+  padding: 12px 20px;
+  border-radius: var(--r-sm);
+  background: rgba(20, 224, 208, 0.06);
+  border: 1px solid rgba(20, 224, 208, 0.22);
+  font-size: 0.88rem;
 }
 
 /* Modals & Lightbox */
